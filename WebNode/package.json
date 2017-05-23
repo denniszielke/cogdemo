@@ -1,0 +1,15 @@
+{
+  "name": "web-node",
+  "version": "0.0.0",
+  "description": "WebNode",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": {
+    "name": "dzielke"
+  },
+  "dependencies": {
+    "node-static": "^0.7.9"
+  }
+}
