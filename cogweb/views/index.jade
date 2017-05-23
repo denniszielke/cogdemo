@@ -1,0 +1,42 @@
+extends layout
+
+block content
+  h1 #{title}
+  br
+
+  form(action="/triggerscan", method="post")
+    table.table.table-striped.table-bordered
+      tr
+        td Id
+        td Img
+        td Name
+        td Gender
+        td Age
+        td Glasses
+        td Smile
+      if (typeof faces === "undefined")
+        tr
+          td
+      else
+        each face in faces
+          tr
+            td #{face.id}
+            td <img heigth='50' width='50' src='https://functionc5f84a129e53.blob.core.windows.net/thumbs/#{face.img}'>
+            td #{face.name}
+            td #{face.gender}
+            td #{face.age}
+            td #{face.glasses}
+            td #{face.smile}
+    
+    button.btn(type="submit") Scan faces 
+    <a href="/scan">Show last scan</a>
+  hr
+  form.well(action="/addFace", method="post")
+    label Face Name:
+    br
+    input(name="name", type="textbox")
+    br
+    label Face Img:
+    input(name="fileName", type="textbox")
+    br
+    button.btn(type="submit") Add item

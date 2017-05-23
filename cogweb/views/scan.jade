@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 #{title}
+  br
+
+  form(action="/triggerscan", method="post")
+    table.table.table-striped.table-bordered
+      tr
+        td Group
+      if (typeof scans === "undefined")
+        tr
+          td
+      else
+        each group in scans
+          tr
+            each face in group
+              td <img heigth='50' width='50' src='https://functionc5f84a129e53.blob.core.windows.net/thumbs/#{face.img}'> #{face.name} #{face.gender} #{face.age} #{face.glasses} #{face.smile}
+    
